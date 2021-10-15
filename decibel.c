@@ -5,15 +5,16 @@
 typedef struct
 {
     string playlist, Artist1, Artist1Title1, Artist1Title2,
-           Artist2, Artist2Title1, Artist2Title2;
+           Artist2, Artist2Title1, Artist2Title2; 
 }
-decibel;
+decibel; // le nom de ma structure
 
 int main(int argc, char *argv[15])
-{
-    decibel song[4];
-    song[0].playlist = "Classical";
-    song[0].Artist1 = "Frédéric Chopin";
+{ 
+    decibel song[4]; // 
+    
+    song[0].playlist = "Classical"; // Je créer mes 4 playlists différentes. 
+    song[0].Artist1 = "Frédéric Chopin"; // Avec le nom des artistes ect;
     song[0].Artist1Title1 = "Suite Bergamasque";
     song[0].Artist1Title2 = "Nocturne";
     song[0].Artist2 = "Bethoven";
@@ -44,28 +45,28 @@ int main(int argc, char *argv[15])
     song[3].Artist2Title1 = "La vie de Bobby";
     song[3].Artist2Title2 = "Crois-moi";
 
-    printf("Welcome to your new music app => Décibel ! \n");
+    printf("Welcome to your new music app => Décibel ! \n"); // phrase d'introduction
     printf("What style of music would you like to listen to? \n");
-    while (argv[0] != NULL)
+    while (argv[0] != NULL) // Tant que l'argument est différent de NULL on continue le code sinon on recommance le code
     {
-        for (int i = 0; i < 4; i ++)
+        for (int i = 0; i < 4; i ++) // boucle for qui me permet de présenter les 4 playlists
         {
             printf("%s, ", song[i].playlist);
         }
-        printf("\n Playlist choice: ");
-        scanf("%s", argv[0]);
-        if (strcmp(argv[0], "Classical") == 0 || strcmp(argv[0], "classical") == 0)
-        {
-            printf("You have the choice between these two virtuosos \n");
-            printf("%s où %s \n Artist choice: ", song[0].Artist1, song[0].Artist2);
-            scanf("%s", argv[0]);
-            if (strcmp(argv[0], "Frédéric Chopin") == 0 || strcmp(argv[0], "Chopin") == 0 || strcmp(argv[0], "chopin") == 0)
+        printf("\n Playlist choice: "); // On demande quel playlist souhaite choisir l'utilisateur
+        scanf("%s", argv[0]); // scanf permet de poser la question et de stocker la réponce
+        if (strcmp(argv[0], "Classical") == 0 || strcmp(argv[0], "classical") == 0) // si argument est = à "Classical où classical"
+        { // alors le code continue de s'exécuter
+            printf("You have the choice between these two virtuosos \n"); // on imprime un texte 
+            printf("%s où %s \n Artist choice: ", song[0].Artist1, song[0].Artist2); // on montre les 2 artistes
+            scanf("%s", argv[0]); // on pose la question puis on la récupère
+            if (strcmp(argv[0], "Frédéric Chopin") == 0 || strcmp(argv[0], "Chopin") == 0 || strcmp(argv[0], "chopin") == 0) // comme précédemment
             {
                 printf("Very good choice, 2 songs available to you \n");
                 printf("%s où %s \n Song choice: ", song[0].Artist1Title1, song[0].Artist1Title2);
                 scanf("%s", argv[0]);
                 printf("Appuyer sur play afin de jouer le morceau, passer un agréable moment ! \n");
-                return 0;
+                return 0; // retourne 0 signifie que tout s'est bien passé
             }
             else if (strcmp(argv[0], "Bethoven") == 0 || strcmp(argv[0], "bethoven") == 0)
             {
@@ -76,7 +77,7 @@ int main(int argc, char *argv[15])
                 return 0;
             }
         }
-        else if (strcmp(argv[0], "Electro") == 0 || strcmp(argv[0], "electro") == 0)
+        else if (strcmp(argv[0], "Electro") == 0 || strcmp(argv[0], "electro") == 0) // Sinon si la playlist choisie est = "Electro où electro"
         {
             printf("You have the choice between these two Artist \n");
             printf("%s où %s \n Artist choice: ", song[1].Artist1, song[1].Artist2);
@@ -98,7 +99,7 @@ int main(int argc, char *argv[15])
                 return 0;
             }
         }
-        else if (strcmp(argv[0], "Rock") == 0 || strcmp(argv[0], "rock") == 0)
+        else if (strcmp(argv[0], "Rock") == 0 || strcmp(argv[0], "rock") == 0) // sinon si la playlist choisie est = "Rock où rock";
         {
             printf("You have the choice between these two big Rockers \n");
             printf("%s où %s \n Artist choice: ", song[2].Artist1, song[2].Artist2);
@@ -143,7 +144,7 @@ int main(int argc, char *argv[15])
             }
             else
             {
-                return 1;
+                return 1; // on retourne 1 pour dire qu'il y a eu un problème
             }
         }
     }
